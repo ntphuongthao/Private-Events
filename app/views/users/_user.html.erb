@@ -1,0 +1,10 @@
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="card w-50 bg-dark" style="margin:auto">
+        <div class="card-body text-light" style="text-align: center">
+            <%= user.email %>
+        </div>
+    </div>
+    <br>
+  <% end %>
+</div>

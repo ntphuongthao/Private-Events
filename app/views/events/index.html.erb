@@ -1,2 +1,14 @@
-<h1>Events#index</h1>
+<h1 style="text-align: center" >Welcome you to Private Events</h1>
+
+<% if @events.empty? %>
+    There are no current events available
+<% else %>
+    <%= render 'events' %>
+<% end %>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <% if user_signed_in? %>
+        <%= link_to "Create a new event", new_event_path, class: "btn btn-secondary" %>
+    <% end %>
+</div>
 

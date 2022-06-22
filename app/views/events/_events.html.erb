@@ -1,0 +1,29 @@
+<div class="container w-50">
+  <% @events.each do |event| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-body">
+            <% if event.creator %>
+              <h5 class="card-title">Hosted by: <%= event.creator.email %></h5>
+            <% else %>
+              <h5 class="card-title">Hosted by: <strong>Anonymous</strong></h5>
+            <% end %>
+
+            <div class="card-text text-center text-left"><strong>Location: </strong> <%= simple_format(event.location) %></div>
+            <div class="card-text text-center text-left"><strong>Time: </strong><%= simple_format(event.date) %></div>
+            <%= link_to "View", event, class: "btn btn-outline-success" %>
+            <% if user_signed_in? && current_user == event.creator %>
+              <%= link_to "Edit", edit_event_path(event), class: "btn btn-outline-info" %>
+              <%= link_to "Delete", event_path(event), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted bg-dark">
+            <small class="text-light">Created <%= time_ago_in_words(event.created_at) %> ago, 
+            edited <%= time_ago_in_words(event.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
