@@ -4,6 +4,10 @@
         <div class="card-body text-light" style="text-align: center">
             <%= user.email %>
         </div>
+          <% if user_signed_in? && current_user == user%>
+          <%= link_to "View", user, class: "btn btn-outline-success bg-light" %>
+          <%= link_to "Delete", user_registration_path, class: "btn btn-outline-danger bg-light", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
     </div>
     <br>
   <% end %>

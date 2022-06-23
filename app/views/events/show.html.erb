@@ -5,8 +5,8 @@
     <div class="col-8 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-body">
-          <div class="card-text text-left"><strong>Location: </strong> <%= simple_format(@event.location) %></div>
-          <div class="card-text text-left"><strong>Time: </strong><%= simple_format(@event.date) %></div>
+          <div class="card-text text-center text-left"><strong>Location: </strong> <%= simple_format(@event.location) %></div>
+          <div class="card-text text-center text-left"><strong>Time: </strong><%= simple_format(@event.date) %></div>
           <% if user_signed_in? %>
             <%= link_to "Edit", edit_event_path(@event), class: "btn btn-outline-info" %>
             <%= link_to "Delete", event_path(@event), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
