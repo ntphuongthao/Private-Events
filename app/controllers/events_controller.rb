@@ -59,6 +59,10 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
+  def search
+    @events = Event.where("location LIKE ?", "%" + params[:q] + "%")
+  end
+
   private 
 
   def set_event

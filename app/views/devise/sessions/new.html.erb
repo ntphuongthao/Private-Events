@@ -2,7 +2,8 @@
   <div class="card-body">
     <h2 style="display: flex; align-items: center; justify-content: center">Sign in</h2>
     <%= render 'devise/shared/error_messages' %>
-    <%= form_with(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
+    <%= form_with(model: resource, as: resource_name, url: new_user_session_path) do |f| %>
 
       <div class="d-flex flex-column justify-content-center align-items-center">
 

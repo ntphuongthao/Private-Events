@@ -1,7 +1,7 @@
 <h1 style="text-align: center" >Welcome you to Private Events</h1>
 
 <% if @events.empty? %>
-    There are no current events available
+    <div style="text-align: center">There are no current events available</div>
 <% else %>
     <%= render 'events' %>
 <% end %>
