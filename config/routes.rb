@@ -5,6 +5,4 @@ Rails.application.routes.draw do
   resources :users
   root 'events#index'
 
-  get '/search', to: "events#search"
-
 end
